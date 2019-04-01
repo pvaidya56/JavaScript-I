@@ -71,33 +71,15 @@ console.log(`The last car is a ${lastCar.car_make} ${lastCar.car_model}`);
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
-let carModels = [];
-/**
- * Function to sort alphabetically an array of objects by some specific key.
- * 
- * @param {String} property Key of the object to sort.
- */
-function dynamicSort(property) {
-    var sortOrder = 1;
-
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-
-    return function (a,b) {
-        if(sortOrder == -1){
-            return b[property].localeCompare(a[property]);
-        } else{
-            return a[property].localeCompare(b[property]);
-        }        
+let carModels = [];	
+ function sortModels() {
+    for(let i = 0; i < inventory.length; i++) {
+        carModels.push(inventory[i].car_model);
     }
 }
-inventory.sort(dynamicSort("car_model"));
+sortModels(inventory);
 
-// Display data with new order !
-console.log(inventory);
-
+ console.log(carModels);
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
 let carYears = [];
